@@ -8,7 +8,7 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:"Segoe UI",Arial,sans-serif;background:#001b47;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
 
-/* ── SIDEBAR ── */
+/* â”€â”€ SIDEBAR â”€â”€ */
 .sidebar{
   position:fixed;top:0;left:0;bottom:0;
   width:200px;background:#001b47;
@@ -55,14 +55,14 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:#001b47;height:100vh;dis
 }
 .btn-home:hover{background:rgba(255,255,255,0.1);color:white;}
 
-/* ── MAIN CONTENT ── */
+/* â”€â”€ MAIN CONTENT â”€â”€ */
 .main{
   margin-left:200px;
   height:100vh;
   position:relative;
 }
 
-/* ── VIEWS ── */
+/* â”€â”€ VIEWS â”€â”€ */
 .view{
   position:absolute;inset:0;
   opacity:0;pointer-events:none;
@@ -70,16 +70,16 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:#001b47;height:100vh;dis
 }
 .view.active{opacity:1;pointer-events:all;}
 
-/* ── LANDING (sin sidebar visible, fullscreen) ── */
+/* â”€â”€ LANDING (sin sidebar visible, fullscreen) â”€â”€ */
 #view-landing{margin-left:-200px;width:calc(100% + 200px);}
 
-/* ── IFRAME ── */
+/* â”€â”€ IFRAME â”€â”€ */
 iframe{
   width:100%;height:100%;
   border:none;display:block;
 }
 
-/* ── LANDING OVERLAY para los botones ── */
+/* â”€â”€ LANDING OVERLAY para los botones â”€â”€ */
 .landing-overlay{
   position:absolute;bottom:0;left:0;right:0;
   height:160px;
@@ -139,13 +139,7 @@ iframe{
       src="https://app.powerbi.com/view?r=eyJrIjoiZDliNWJjYjEtMTIxMC00MWVjLWE0ZTAtMzUwYjNiYWUxMWZmIiwidCI6ImU4NWMxMzliLTRkMmQtNGRkMC1hMmY2LTVmY2ZlZGU3YmNhYSIsImMiOjR9"
       allowfullscreen title="Landing Page">
     </iframe>
-    <div class="landing-overlay">
-      <div class="landing-buttons">
-        <div class="ucl-btn" onclick="showView('licitaciones')">LICITACIONES</div>
-        <div class="ucl-btn" onclick="showView('contratos')">CONTRATOS</div>
-        <div class="ucl-btn" onclick="showView('visitas')">VISITAS</div>
-      </div>
-    </div>
+
   </div>
 
   <!-- LICITACIONES -->
@@ -187,7 +181,7 @@ iframe{
     document.getElementById('view-' + currentView).classList.remove('active');
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
 
-    // Mostrar/ocultar sidebar según si es landing o no
+    // Mostrar/ocultar sidebar segÃºn si es landing o no
     if(name === 'landing') {
       sidebar.style.display = 'none';
       main.style.marginLeft = '0';
@@ -201,7 +195,7 @@ iframe{
       if(navEl) navEl.classList.add('active');
     }
 
-    // Lazy load iframe si no cargó todavía
+    // Lazy load iframe si no cargÃ³ todavÃ­a
     const iframe = document.getElementById('iframe-' + name);
     if(iframe && !iframe.src && iframe.dataset.src) {
       iframe.src = iframe.dataset.src;
